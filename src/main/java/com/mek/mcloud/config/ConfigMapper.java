@@ -4,6 +4,7 @@
  */
 package com.mek.mcloud.config;
 
+import java.util.Map;
 import java.util.Properties;
 
 /**
@@ -14,21 +15,18 @@ public class ConfigMapper {
     
     private static Properties staticResource = StaticResourceCofiguration.getStaticResource();
     private static Properties youtubeResource = YouTubeConfiguration.getYoutubeResource();
+    private static Map<String, Map> youtubeSearchFilter = YouTubeConfiguration.getYoutubeSearchFilter();
 
     public static Properties getStaticResource() {
         return staticResource;
-    }
-
-    public static void setStaticResource(Properties staticResource) {
-        ConfigMapper.staticResource = staticResource;
     }
 
     public static Properties getYoutubeResource() {
         return youtubeResource;
     }
 
-    public static void setYoutubeResource(Properties youtubeResource) {
-        ConfigMapper.youtubeResource = youtubeResource;
+    public static Map<String, Map> getYoutubeSearchFilter() {
+        return youtubeSearchFilter;
     }
     
 }

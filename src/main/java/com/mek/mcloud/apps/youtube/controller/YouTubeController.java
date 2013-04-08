@@ -33,6 +33,7 @@ public class YouTubeController extends ConfigMapper {
             LOG.info("this is for info log youtube controller");
             map.put("search", new YouTubeSearch());
             map.put("ststicResources", getStaticResource().getProperty("com.mek.mcloud.app.ststicResources"));
+            map.put("filter", getYoutubeSearchFilter());
             
             return "youtube/home";
             
