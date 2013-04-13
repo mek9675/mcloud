@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.example</groupId>
+    <groupId>com.mek.mcloud</groupId>
     <artifactId>mCloud</artifactId>
     <packaging>war</packaging>
     <version>0.0.1-SNAPSHOT</version>
@@ -9,10 +9,18 @@
     <properties>
         <org.springframework.version>3.1.1.RELEASE</org.springframework.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+<!--        <project.youtube.version>v3-rev40-1.14.1-beta</project.youtube.version>-->
         <project.youtube.version>v3-rev8-1.12.0-beta</project.youtube.version>
         <project.http.version>1.12.0-beta</project.http.version>
     </properties>
 
+    <repositories>
+        <repository>
+            <id>google-api-services</id>
+            <url>http://google-api-client-libraries.appspot.com/mavenrepo</url>
+        </repository>
+    </repositories>
+    
     <dependencies>
         <dependency>
             <groupId>log4j</groupId>
@@ -65,6 +73,7 @@
             <artifactId>hibernate-entitymanager</artifactId>
             <version>3.6.10.Final</version>
         </dependency>
+        
         <dependency>
             <groupId>com.github.jsimone</groupId>
             <artifactId>webapp-runner</artifactId>
@@ -72,40 +81,34 @@
             <scope>provided</scope>
         </dependency>
         
-<!--        <dependency>
-            <groupId>com.google.apis</groupId>
-            <artifactId>google-api-services-youtube</artifactId>
-            <version>${project.youtube.version}</version>
-        </dependency>-->
         <dependency>
             <groupId>com.google.apis</groupId>
             <artifactId>google-api-services-youtube</artifactId>
-            <version>v3-rev40-1.14.1-beta</version>
+            <version>${project.youtube.version}</version>
         </dependency>
-
+        
         <dependency>
             <groupId>com.google.http-client</groupId>
             <artifactId>google-http-client-jackson2</artifactId>
             <version>${project.http.version}</version>
         </dependency>
         
-         <dependency>
+        <dependency>
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis</artifactId>
             <version>3.1.1</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.2.2</version>
+<!--            <scope>compile</scope>-->
         </dependency>
     </dependencies>
 
     <build>
         <plugins>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>exec-maven-plugin</artifactId>
-                <version>1.2.1</version>
-                <configuration>
-                    <mainClass>com.google.api.services.samples.youtube.cmdline.youtube_cmdline_search_sample.Search</mainClass>
-                </configuration>
-            </plugin>
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>2.3.2</version>
@@ -115,11 +118,11 @@
                     <compilerArgument></compilerArgument>
                 </configuration>
             </plugin>
-            <plugin>
+<!--            <plugin>
                 <artifactId>maven-war-plugin</artifactId>
                 <version>2.2</version>
-            </plugin>
-            <plugin>
+            </plugin>-->
+<!--            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-dependency-plugin</artifactId>
                 <version>2.4</version>
@@ -141,7 +144,7 @@
                         </configuration>
                     </execution>
                 </executions>
-            </plugin>
+            </plugin>-->
         </plugins>
     </build>
 </project>

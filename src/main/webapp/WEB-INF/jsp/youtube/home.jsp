@@ -11,9 +11,9 @@
     <head>
         
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href="${ststicResources}/gumby/css/gumby.css" rel="stylesheet">  
-        <script type="text/javascript" src="${ststicResources}/jQuery/js/jquery-1.8.3.min.js"></script>
-        <script type="text/javascript" src="${ststicResources}/gumby/js/libs/gumby.js"></script>
+        <link href="${staticResources}/gumby/css/gumby.css" rel="stylesheet">  
+        <script type="text/javascript" src="${staticResources}/jQuery/js/jquery-1.8.3.min.js"></script>
+        <script type="text/javascript" src="${staticResources}/gumby/js/libs/gumby.js"></script>
         <title>YouTube</title>
         <script type="text/javascript" >
             function checkUncheck(filter,obj) {
@@ -37,6 +37,7 @@
                     url: "./search",
                     data: formData,
                     success: function(msg){
+                        $('#searchData').html(msg);
                         alert( "Data Saved: " + msg );
                     }
                 });
@@ -46,7 +47,8 @@
     </head>
     
     <body>
-        <form name="youtubeSearch" id="youtubeSearch" method="post" action="./search">
+        ${java.io.tmpdir}
+        <form name="youtubeSearch" id="youtubeSearch" method="" action="">
             <input type="text" name="q" id="q" value="${search.q}" />
             <input type="button" name="Search" value="Search" class="medium primary btn" onclick="getSearchResult('youtubeSearch')" />
             <table>
@@ -61,6 +63,9 @@
                     </c:forEach>
                 </tr>
             </table>
+            <input type="hidden" name="maxResults" value="21" />
+            
+            <div id="searchData"></div>
         </form>
     </body>
 </html>

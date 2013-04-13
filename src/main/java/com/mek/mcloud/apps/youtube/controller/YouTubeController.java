@@ -5,14 +5,16 @@
 package com.mek.mcloud.apps.youtube.controller;
 
 
+import com.google.api.services.youtube.model.SearchResult;
 import com.mek.mcloud.apps.youtube.model.YouTubeSearch;
+import com.mek.mcloud.apps.youtube.model.YouTubeSearchDisplayBeanArray;
 import com.mek.mcloud.apps.youtube.service.YouTubeSearchImpl;
 import com.mek.mcloud.config.ConfigMapper;
 import com.mek.mcloud.setup.MCloudContextListener;
+import java.util.List;
 import java.util.Map;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import java.util.Properties;
 import org.apache.log4j.Logger;
 
 /**
@@ -32,7 +34,7 @@ public class YouTubeController extends ConfigMapper {
             
             LOG.info("this is for info log youtube controller");
             map.put("search", new YouTubeSearch());
-            map.put("ststicResources", getStaticResource().getProperty("com.mek.mcloud.app.ststicResources"));
+            map.put("staticResources", getStaticResource().getProperty("com.mek.mcloud.app.ststicResources"));
             map.put("filter", getYoutubeSearchFilter());
             
             return "youtube/home";
@@ -43,8 +45,11 @@ public class YouTubeController extends ConfigMapper {
 	public String search(Map<String, Object> map,final YouTubeSearch search) {
             
             map.put("search", search);
-            map.put("ststicResources", getStaticResource().getProperty("com.mek.mcloud.app.ststicResources"));
-            return "youtube/home";
+            map.put("staticResources", getStaticResource().getProperty("com.mek.mcloud.app.ststicResources"));
+            map.put("filter", getYoutubeSearchFilter());
+            YouTubeSearchDisplayBeanArray searchResultList = searchService.getSearchResult(search);
+            map.put("result", searchResultList);
+            return "youtube/result";
             
 	}
     

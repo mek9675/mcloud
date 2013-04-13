@@ -4,6 +4,8 @@
  */
 package com.mek.mcloud.apps.youtube.model;
 
+import com.mek.mcloud.config.ConfigMapper;
+
 /**
  *
  * @author root
@@ -16,7 +18,25 @@ public class YouTubeSearch {
     private String features;
     private String resultType;
     private String uploadDate;
+//    private String maxResults = ConfigMapper.getYoutubeResource().getProperty("youtube.search.maxresults.count");
+    private Long maxResults;
 
+    public Long getMaxResults() {
+        return maxResults;
+    }
+
+    public void setMaxResults(Long maxResults) {
+        this.maxResults = maxResults;
+    }
+
+//    public String getMaxResults() {
+//        return maxResults;
+//    }
+//
+//    public void setMaxResults(String maxResults) {
+//        this.maxResults = maxResults;
+//    }
+    
     public String getDuration() {
         return duration;
     }
