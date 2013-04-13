@@ -10,6 +10,7 @@
 <html>
     <head>
         
+        
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="${ststicResources}/gumby/css/gumby.css" rel="stylesheet">  
         <script type="text/javascript" src="${ststicResources}/jQuery/js/jquery-1.8.3.min.js"></script>
