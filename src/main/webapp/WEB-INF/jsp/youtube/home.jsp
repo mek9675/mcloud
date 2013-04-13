@@ -14,7 +14,7 @@
         <link href="${ststicResources}/gumby/css/gumby.css" rel="stylesheet">  
         <script type="text/javascript" src="${ststicResources}/jQuery/js/jquery-1.8.3.min.js"></script>
         <script type="text/javascript" src="${ststicResources}/gumby/js/libs/gumby.js"></script>
-        <title>YouTube</title>
+        <title>YouTube Module</title>
         <script type="text/javascript" >
             function checkUncheck(filter,obj) {
                 $('[name="' + filter + '"]').each(function(index) {
